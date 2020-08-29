@@ -1,8 +1,6 @@
 package com.seanmeedev.rest.webservices.restfulwebservices.user;
 
-//import java.util.ArrayList;
 import java.util.Date;
-//import java.util.List;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -13,8 +11,6 @@ import javax.validation.constraints.Past;
 import javax.validation.constraints.Size;
 
 import com.seanmeedev.rest.webservices.restfulwebservices.post.Post;
-
-//import com.seanmeedev.rest.webservices.restfulwebservices.post.Post;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

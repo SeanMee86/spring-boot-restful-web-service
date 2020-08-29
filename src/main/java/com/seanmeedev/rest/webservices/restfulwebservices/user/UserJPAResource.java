@@ -44,7 +44,7 @@ public class UserJPAResource {
 	@GetMapping(path="/jpa/users/{id}")
 	public EntityModel<User> retrieveUser(@PathVariable int id) {
 		Optional<User> user = userRepository.findById(id);
-		if(!user.isPresent())
+		if(user.isEmpty())
 			throw new UserNotFoundException("id-"+id);
 		
 		EntityModel<User> resource = EntityModel.of(user.get());
@@ -76,7 +76,7 @@ public class UserJPAResource {
 	public List<Post> retrieveAllPosts(@PathVariable int id) {
 		Optional<User> userOptional = userRepository.findById(id);
 		
-		if(!userOptional.isPresent())
+		if(userOptional.isEmpty())
 			throw new UserNotFoundException("id-"+id);
 		
 		return userOptional.get().getPosts();
@@ -86,7 +86,7 @@ public class UserJPAResource {
 	public ResponseEntity<Object> createPost(@PathVariable int id, @RequestBody Post post) {
 		Optional<User> userOptional = userRepository.findById(id);
 		
-		if(!userOptional.isPresent())
+		if(userOptional.isEmpty())
 			throw new UserNotFoundException("id-"+id);
 		
 		User user  = userOptional.get();
